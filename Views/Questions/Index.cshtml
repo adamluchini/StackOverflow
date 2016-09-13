@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Question";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Security.Claims
+
+@model IEnumerable<StackOverflow.Models.Question>
+
+<h2>The list of Questions:</h2>
+<hr />
+
+@if (Model.Any())
+{
+
+
+    <ul>
+        @foreach (var listItem in Model)
+        {
+            <li>@Html.DisplayFor(modelItem => listItem.Description) | @Html.ActionLink("Details", "Details", new { id = listItem.QuestionId }) | @Html.ActionLink("Edit", "Edit", new { id = listItem.QuestionId })</li>
+
+            <li>
+                    <input type="submit" value="Delete" />
+            </li>
+            <hr />
+        }
+    </ul>
+}
+else
+{
+    <p>No Questions have been added yet!</p>
+}
+
+| @Html.ActionLink("Create new", "Create") | @Html.ActionLink("Ready to log out?", "index", "Account") |

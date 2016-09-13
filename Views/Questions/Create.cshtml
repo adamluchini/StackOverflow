@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model StackOverflow.Models.Question
+
+<h2>Ask a Question</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(model => model.Description)
+    <input type="submit" value="Ask" />
+}
+@Html.ActionLink("Back to List", "Index")
